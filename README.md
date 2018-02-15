@@ -4,19 +4,19 @@ This is where i'll add all the basic knowledge from the go tour
 
 ## Commands
 ```
-`$ go get <github.com/user/project>
+$ go get <github.com/user/project>
 ```
 
 ```
-go install
+$ go install
 ```
 
 ```
-go build
+$ go build
 ```
 
 ```
-go run
+$ go run
 ```
 
 ## Author
