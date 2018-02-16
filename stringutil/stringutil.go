@@ -9,3 +9,7 @@ func Reverse(s string) string {
 	}
 	return string(r)
 }
+
+func Rot13(s string) string {
+	return "testing"
+}

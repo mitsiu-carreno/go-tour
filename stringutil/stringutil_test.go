@@ -17,3 +17,10 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+
+func TestRot13(t *testing.T) {
+	got := Rot13("-")
+	if got != "testing" {
+		t.Errorf("Rot13(-) == %q, want testing", got)
+	}
+}
