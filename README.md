@@ -30,7 +30,7 @@ $ go doc        // show documentation for package or symbol
 ## Testing
 
 Create a file *_test.go, containing functions named "TestXXX" with signature (t *Testing.T)
-** If the function calls a failure function such as t.Error or t.Fail, the test is considered to have failed.**
+**If the function calls a failure function such as t.Error or t.Fail, the test is considered to have failed.**
 
 ## Author
 
