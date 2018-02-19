@@ -30,6 +30,26 @@ $ go doc        // show documentation for package or symbol
 ```
 $ godoc <package>   // Show the documentation (godoc regexp | grep parse)
 ```
+
+## Basic Types
+```
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // alias for uint8
+
+rune // alisas for int32
+     // represents a Unicode code point
+
+float32 float64
+
+complex64 complex128
+```
+
 ## Testing
 
 Create a file *_test.go, containing functions named "TestXXX" with signature (t *testing.T)
@@ -46,7 +66,7 @@ https://github.com/Microsoft/vscode-go
 - [x] golint - go linter (go get -u github.com/golang/lint/golint)
 - [x] gopkgs - list your installed Go packages for import (go get -v github.com/uudashr/gopkgs/cmd/gopkgs)
 - [x] gocode - autocompletion (go get -v github.com/nsf/gocode)
-godoc - documentation that appears on hover ()
+godoc or gogetdoc - documentation that appears on hover ()
 
 
 ## Conventions
