@@ -46,6 +46,7 @@ https://github.com/Microsoft/vscode-go
 - [x] golint - go linter (go get -u github.com/golang/lint/golint)
 - [x] gopkgs - list your installed Go packages for import (go get -v github.com/uudashr/gopkgs/cmd/gopkgs)
 - [x] gocode - autocompletion (go get -v github.com/nsf/gocode)
+godoc - documentation that appears on hover ()
 
 
 ## Conventions
