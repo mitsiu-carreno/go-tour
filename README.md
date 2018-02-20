@@ -33,9 +33,11 @@ $ godoc <package>   // Show the documentation (godoc regexp | grep parse)
 
 ## Basic Types
 ```
-bool
+bool 
+(default : false)
 
-string
+string 
+(default : "")
 
 int  int8  int16  int32  int64
 uint uint8 uint16 uint32 uint64 uintptr
@@ -48,6 +50,7 @@ rune // alisas for int32
 float32 float64
 
 complex64 complex128
+(default : 0)
 ```
 
 ## Testing
