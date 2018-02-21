@@ -78,6 +78,8 @@ godoc or gogetdoc - documentation that appears on hover ()
 
 > Inside a function, the := short assignment statement can be used in place of a var declaration with implicit type Outside a function, every statement begins with a keyword (var, func, and so on) and so the := construct is not available.
 
+> Constants are declared like variables, but with the const keyword. Constants can be character, string, boolean, or numeric values. **Constants cannot be declared using the := syntax.**
+
 
 #### Packages
 Are given lower case, single-word names; there should be no need for underscores or mixedCaps.
