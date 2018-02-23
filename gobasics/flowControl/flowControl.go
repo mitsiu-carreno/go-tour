@@ -24,3 +24,12 @@ func ForAsWhile(limit int){
 	fmt.Println("use a ReducedFor as a while in go")
 	ReducedFor(limit)
 }
+
+// SimpleIf syntax like a for loop
+func SimpleIf(x int){
+	if y := x; y > 5{
+		fmt.Printf("%v is greater than 5\n", y)
+	}else{
+		fmt.Printf("%v is lesser than 5\n", y)
+	}
+}

@@ -33,4 +33,5 @@ func main() {
 	flowControl.SimpleFor()
 	flowControl.ReducedFor(5)
 	flowControl.ForAsWhile(3)
+	flowControl.SimpleIf(3)
 }
