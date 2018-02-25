@@ -58,6 +58,15 @@ complex64 complex128
 Create a file *_test.go, containing functions named "TestXXX" with signature (t *testing.T)
 **If the function calls a failure function such as t.Error or t.Fail, the test is considered to have failed.**
 
+## Logger
+
+That logger writes to standard error and prints the date and time of each logged message. Every log message is output on a separate line: if the message being printed does not end in a newline, the logger will add one. The Fatal functions call os.Exit(1) after writing the log message. The Panic functions call panic after writing the log message.
+
+*METHODS*
+Print
+Panic -> call panic funcion
+Fatal -> exit program
+
 ## VS Code Plugins
 https://github.com/Microsoft/vscode-go
 - [ ] go-outline

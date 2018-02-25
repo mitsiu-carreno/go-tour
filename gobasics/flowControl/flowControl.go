@@ -1,7 +1,11 @@
 // Package flowControl covers for, if, switch and defer structures
 package flowControl
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"log"
+)
 
 // SimpleFor unlike many languages, Go dosn't require the parentesis
 func SimpleFor (){
@@ -25,11 +29,31 @@ func ForAsWhile(limit int){
 	ReducedFor(limit)
 }
 
-// SimpleIf syntax like a for loop
+// SimpleIf syntax like a for loop // Since error cases tend to end in return statements, the resulting code needs no else statements.
 func SimpleIf(x int){
 	if y := x; y > 5{
 		fmt.Printf("%v is greater than 5\n", y)
 	}else{
 		fmt.Printf("%v is lesser than 5\n", y)
 	}
+}
+
+// IfErrorCatching basic error catching structure
+func IfErrorCatching(){
+	wd, err := os.Getwd()
+	log.Println(wd)
+	
+	f, err := os.Open("gobasics/flowControl/test.txt")
+	if err != nil {
+		fmt.Println(err)
+		log.Println(err)
+	}
+
+	d, err := f.Stat()
+	if err != nil {
+		f.Close()
+		log.Println(err)
+	}
+
+	fmt.Println(f, d)
 }
