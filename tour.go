@@ -7,6 +7,7 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
 	"github.com/mitsiu-carreno/go-tour/stringutil"
+	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
 )
 
 const (
@@ -22,6 +23,7 @@ func main() {
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
 	// Basics
+	fmt.Printf("\n----BASICS----\n")
 	fmt.Println(gobasics.NakedReturn("kary", "<", 3))
 	f, u := gobasics.TypeConversions(1210)
 	fmt.Printf("1210 int -> %v of type %T ->  %v of type %T \n", f, f, u, u)
@@ -30,9 +32,23 @@ func main() {
 	fmt.Println("Constant Big ", complex64(Big))
 
 	// Flow Control
+	
+	fmt.Printf("\n----FLOW CONTROL----\n")
 	flowControl.SimpleFor()
 	flowControl.ReducedFor(5)
 	flowControl.ForAsWhile(3)
+
 	flowControl.SimpleIf(3)
 	flowControl.IfErrorCatching()
+
+	flowControl.SimpleSwitch()
+	flowControl.SwitchEvaluationOrder()
+	flowControl.SwitchNoCondition()
+
+	flowControl.Defer()
+	flowControl.StackedDefer()
+
+	// More Types
+	fmt.Printf("\n----MORE TYPES----\n")
+	moreTypes.Pointers()
 }

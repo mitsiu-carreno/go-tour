@@ -2,9 +2,11 @@
 package flowControl
 
 import (
+	"time"
 	"fmt"
 	"os"
 	"log"
+	"runtime"
 )
 
 // SimpleFor unlike many languages, Go dosn't require the parentesis
@@ -44,7 +46,7 @@ func IfErrorCatching(){
 	log.Println(wd)
 	
 	f, err := os.Open("gobasics/flowControl/test.txt")
-	if err != nil {
+	if err != nil {	
 		fmt.Println(err)
 		log.Println(err)
 	}
@@ -54,6 +56,62 @@ func IfErrorCatching(){
 		f.Close()
 		log.Println(err)
 	}
+	//Code using f and d
+	fmt.Println(f, " and ", d)
+}
 
-	fmt.Println(f, d)
+// SimpleSwitch a switch statement is a shorter way to write a secuence of if-else statements
+func SimpleSwitch() {
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X")
+	case "linux":
+		fmt.Println("linux")
+	default:
+		fmt.Printf("%v \n", os)
+	}
+}
+
+// SwitchEvaluationOrder shows the order top-bottom of the switch evaluations
+func SwitchEvaluationOrder(){
+	fmt.Println("When's saturday?")
+	today := time.Now().Weekday()
+	switch time.Saturday {
+	case today + 0:
+		fmt.Println("Today")
+	case today + 1:
+		fmt.Println("Tomorrow")
+	case today + 2:
+		fmt.Println("In two days")
+	default:
+		fmt.Println("Too far away")
+	}
+
+}
+
+// SwitchNoCondition a switch without condition is the same as a switch-true
+func SwitchNoCondition(){
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning")
+	case t.Hour() < 17:
+		fmt.Println("Good evening")
+	default:
+		fmt.Println("Good night")
+	}
+}
+
+// Defer defers the execution of a function until the surrounding functions return (LIFO)
+func Defer(){
+	defer fmt.Printf("World\n")
+	defer fmt.Print(" ")
+	fmt.Print("Hello")
+}
+
+// StackedDefer defer functions are pushed onto a stack where Last-In-First-Out
+func StackedDefer()  {
+	for i:= 0 ; i < 10; i++{
+		defer fmt.Println(i)
+	}
 }
