@@ -10,7 +10,7 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
-	"github.com/mitsiu-carreno/go-tour/zipfiles"
+	"github.com/mitsiu-carreno/go-tour/ziputil"
 )
 
 const (
@@ -26,11 +26,11 @@ func main() {
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
 	// ZipFiles
-	files := []string{"file1.csv","file2.csv"}
-	output := "go-zip.zip"
+	files := []string{"ziputil/file1.csv","ziputil/file2.csv"}
+	output := "ziputil/go-zip.zip"
 
 	log.Println("Start zipping: ", output)
-	err := zipfiles.ZipFiles(output, files)
+	err := ziputil.ZipFiles(output, files)
 
 	if err != nil {
 		log.Fatal(err)
