@@ -10,7 +10,7 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
-	"github.com/mitsiu-carreno/go-tour/ziputil"
+	_"github.com/mitsiu-carreno/go-tour/ziputil"
 )
 
 const (
@@ -25,7 +25,7 @@ func main() {
 	fmt.Printf("The time is %v \n", time.Now())
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
-	// ZipFiles
+	/* ZipFiles
 	files := []string{"ziputil/file1.csv","ziputil/file2.csv"}
 	output := "ziputil/go-zip.zip"
 
@@ -36,12 +36,15 @@ func main() {
 		log.Fatal(err)
 	}
 	log.Println("Finish zipping: ", output)
+	*/
 
 	// Basics
 	fmt.Printf("\n----BASICS----\n")
 	fmt.Println(gobasics.NakedReturn("kary", "<", 3))
+	fmt.Println()	
 	f, u := gobasics.TypeConversions(1210)
 	fmt.Printf("1210 int -> %v of type %T ->  %v of type %T \n", f, f, u, u)
+	fmt.Println()	
 	gobasics.TypeInterface()
 	fmt.Println("Constant Small ", Small)
 	fmt.Println("Constant Big ", complex64(Big))
@@ -50,18 +53,21 @@ func main() {
 	
 	fmt.Printf("\n----FLOW CONTROL----\n")
 	flowControl.ForStruct(3)
-
+	fmt.Println()
 	flowControl.IfStruct(3)
-
+	fmt.Println()
 	flowControl.SwitchStruct()
-
+	fmt.Println()
 	flowControl.DeferStruct()
 
 	// More Types
 	fmt.Printf("\n----MORE TYPES----\n")
 	moreTypes.Pointers()
+	fmt.Println()
 	moreTypes.Structs()
+	fmt.Println()
 	moreTypes.ArrayStruct()
-
+	fmt.Println()	
+	moreTypes.SliceStruct()
 
 }

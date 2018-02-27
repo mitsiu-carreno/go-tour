@@ -65,11 +65,54 @@ func ArrayStruct(){
 	a[1] = "World"
 	fmt.Println(a[0])
 	fmt.Println(a)
+
+	// This is an array literal
+	var b = [3]bool{true, true, false}
+	fmt.Println("Array literal (var b = [3]bool{true, true, false})")
+	fmt.Println(b)
 }
 
-// SliceStruct
+// SliceStruct While arrays have fixed sizes. A slice is dinamically-sized  SLICES ARE LIEK REFERENCES TO ARRAYS
 func SliceStruct(){
-	// While arrays have fixed sizes. An
+	// The type []T is a slice with elements of type T
+	// A slice is formed by specifing two indices, a low and a high bound, separated by a colon 
+	// a[low: high] (Default = [0:length])
+	// This selects a half-open range which includes the first element but excludes the second one
+	
+	primes := [6]int{2,3,5,7,11,13}	// This is an array
+	var s []int = primes[1:4] 
+	fmt.Printf("Array = %v, slice[1:4] = %v \n", primes, s)
+	
+	//-------------------------------------------IMPORTANT------------------------------------------//
+	// A SLICE DOES NOT STORE ANY DATA it just describes a section of an underlying array			//
+	// Changing elements of a slice modifies the corresponding elements of its underlying array		//
+	// Other slices that share the same underlying array will see those changes 					//
+	//-------------------------------------------IMPORTANT------------------------------------------//
+
+	numbers := []int{0,1,2,3,4,5}
+	a := numbers[1:4]
+	b := numbers[:2]
+	c := numbers[1:]
+	fmt.Println("Original array: ", numbers)
+	fmt.Println("slice[1:4]", a)
+	fmt.Println("slice[:2]", b)
+	fmt.Println("slice[1:]", c)
+
+
+	// Slice literals are like an array literal without the length
+	q := []int{2,5,3,8}
+	r := []bool{true, false, true, false}
+	t := []struct{
+		int
+		bool
+	}{
+		{5, true},
+		{3, false},
+		{10, false},
+	}
+	fmt.Println("slice literals (q := []int{2,5,3,8}), example:")
+	fmt.Println(q, " // ",  r, " // ", t)
+
 }
 // LoopingArray when looping over an array, slice, string or map or reading from a channel use range
 func LoopingArray(){
