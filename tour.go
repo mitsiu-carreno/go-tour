@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	_"log"
 	"fmt"
 	"time"
 
