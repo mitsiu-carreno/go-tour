@@ -1,13 +1,16 @@
 package main
 
 import (
+	"log"
 	"fmt"
 	"time"
 
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
-	"github.com/mitsiu-carreno/go-tour/stringutil"
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
+
+	"github.com/mitsiu-carreno/go-tour/stringutil"
+	"github.com/mitsiu-carreno/go-tour/zipfiles"
 )
 
 const (
@@ -21,6 +24,18 @@ const (
 func main() {
 	fmt.Printf("The time is %v \n", time.Now())
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
+
+	// ZipFiles
+	files := []string{"file1.csv","file2.csv"}
+	output := "go-zip.zip"
+
+	log.Println("Start zipping: ", output)
+	err := zipfiles.ZipFiles(output, files)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("Finish zipping: ", output)
 
 	// Basics
 	fmt.Printf("\n----BASICS----\n")
@@ -47,4 +62,6 @@ func main() {
 	moreTypes.Pointers()
 	moreTypes.Structs()
 	moreTypes.ArrayStruct()
+
+
 }
