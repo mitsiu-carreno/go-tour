@@ -46,4 +46,5 @@ func main() {
 	fmt.Printf("\n----MORE TYPES----\n")
 	moreTypes.Pointers()
 	moreTypes.Structs()
+	moreTypes.ArrayStruct()
 }
