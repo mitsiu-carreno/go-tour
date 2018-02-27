@@ -1,4 +1,4 @@
-// Package flowControl covers for, if, switch and defer structures
+// Package flowControl covers for, if, switch and defer Structtures
 package flowControl
 
 import (
@@ -9,15 +9,15 @@ import (
 	"runtime"
 )
 
-// SimpleFor unlike many languages, Go dosn't require the parentesis
-func SimpleFor (){
-	for i:=0; i<5; i++{
+// ForStruct covers the simple Structture and the reduced one
+func ForStruct (limit int){
+	// Simple for (unlike many languages, Go dosn't require the parentesis)
+	for i:=0; i<limit; i++{
 		fmt.Println("for i:=0; i<5; i++{} // ", i)
 	}
-}
 
-// ReducedFor only takes the condition expression without an init nor post statement but both must exist elsewhere
-func ReducedFor(limit int){
+	// ReducedFor only takes the condition expression without an init nor post statement but both must exist elsewhere	
+	// The ReducedFor works as a while
 	i := 1
 	for i < limit {
 		fmt.Println("for i < limit {} // ", i)
@@ -25,24 +25,18 @@ func ReducedFor(limit int){
 	}
 }
 
-// ForAsWhile is as simple as the ReducedFor
-func ForAsWhile(limit int){
-	fmt.Println("use a ReducedFor as a while in go")
-	ReducedFor(limit)
-}
-
-// SimpleIf syntax like a for loop // Since error cases tend to end in return statements, the resulting code needs no else statements.
-func SimpleIf(x int){
+// IfStruct covers the simple Structture
+func IfStruct (x int){
+	// SimpleIf syntax like a for loop // Since error cases tend to end in return statements, the resulting code needs no else statements.
 	if y := x; y > 5{
 		fmt.Printf("%v is greater than 5\n", y)
 	}else{
 		fmt.Printf("%v is lesser than 5\n", y)
 	}
-}
 
-// IfErrorCatching basic error catching structure
-func IfErrorCatching(){
+	// IfErrorCatching basic error catching Structture
 	wd, err := os.Getwd()
+		// Log Working directory
 	log.Println(wd)
 	
 	f, err := os.Open("gobasics/flowControl/test.txt")
@@ -56,12 +50,13 @@ func IfErrorCatching(){
 		f.Close()
 		log.Println(err)
 	}
-	//Code using f and d
+		//Code using f and d
 	fmt.Println(f, " and ", d)
 }
 
-// SimpleSwitch a switch statement is a shorter way to write a secuence of if-else statements
-func SimpleSwitch() {
+// SwitchStruct covers the simple Struct, the evaluation order and the switch with no condition
+func SwitchStruct(){
+	// SimpleSwitch a switch statement is a shorter way to write a secuence of if-else statements
 	switch os := runtime.GOOS; os {
 	case "darwin":
 		fmt.Println("OS X")
@@ -70,10 +65,8 @@ func SimpleSwitch() {
 	default:
 		fmt.Printf("%v \n", os)
 	}
-}
 
-// SwitchEvaluationOrder shows the order top-bottom of the switch evaluations
-func SwitchEvaluationOrder(){
+	// SwitchEvaluationOrder shows the order top-bottom of the switch evaluations
 	fmt.Println("When's saturday?")
 	today := time.Now().Weekday()
 	switch time.Saturday {
@@ -87,10 +80,7 @@ func SwitchEvaluationOrder(){
 		fmt.Println("Too far away")
 	}
 
-}
-
-// SwitchNoCondition a switch without condition is the same as a switch-true
-func SwitchNoCondition(){
+	// SwitchNoCondition a switch without condition is the same as a switch-true
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -102,16 +92,15 @@ func SwitchNoCondition(){
 	}
 }
 
-// Defer defers the execution of a function until the surrounding functions return (LIFO)
-func Defer(){
-	defer fmt.Printf("World\n")
-	defer fmt.Print(" ")
-	fmt.Print("Hello")
-}
+// DeferStruct defers the execution of a function until the surrounding functions return (LIFO)
+func DeferStruct(){
 
-// StackedDefer defer functions are pushed onto a stack where Last-In-First-Out
-func StackedDefer()  {
+	// StackedDefer defer functions are pushed onto a stack where Last-In-First-Out
 	for i:= 0 ; i < 10; i++{
 		defer fmt.Println(i)
 	}
+	
+	defer fmt.Printf("World\n")
+	defer fmt.Print(" ")
+	fmt.Print("Hello")
 }

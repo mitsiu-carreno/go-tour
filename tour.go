@@ -34,21 +34,16 @@ func main() {
 	// Flow Control
 	
 	fmt.Printf("\n----FLOW CONTROL----\n")
-	flowControl.SimpleFor()
-	flowControl.ReducedFor(5)
-	flowControl.ForAsWhile(3)
+	flowControl.ForStruct(3)
 
-	flowControl.SimpleIf(3)
-	flowControl.IfErrorCatching()
+	flowControl.IfStruct(3)
 
-	flowControl.SimpleSwitch()
-	flowControl.SwitchEvaluationOrder()
-	flowControl.SwitchNoCondition()
+	flowControl.SwitchStruct()
 
-	flowControl.Defer()
-	flowControl.StackedDefer()
+	flowControl.DeferStruct()
 
 	// More Types
 	fmt.Printf("\n----MORE TYPES----\n")
 	moreTypes.Pointers()
+	moreTypes.Structs()
 }
