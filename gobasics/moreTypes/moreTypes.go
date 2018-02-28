@@ -113,6 +113,27 @@ func SliceStruct(){
 	fmt.Println("slice literals (q := []int{2,5,3,8}), example:")
 	fmt.Println(q, " // ",  r, " // ", t)
 
+	// Slice has both length and capacity
+	// The length "len(s)" of a slice is the number of elements it contains
+	// The capacity "cap(s)" of a slice is the number of elements in the underlying array, counting from the first element in the slice
+	y := []int{1,2,3,4,5}
+	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
+	y = y[:0]
+	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
+	// You can extend a slice's length by re-slicing it
+	y = y[:4]
+	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
+	y = y[2:]
+	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
+	y = y[1:]
+	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
+
+	// Nil slices
+	// A zero value of slice is nil
+	// A nil slice has zero length and capacity and no underlying array
+	var z []int
+	fmt.Printf("len=%d, cap = %d, %v\n", len(z), cap(z), z)
+	
 }
 // LoopingArray when looping over an array, slice, string or map or reading from a channel use range
 func LoopingArray(){
