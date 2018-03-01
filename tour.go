@@ -1,16 +1,17 @@
 package main
 
 import (
-	_"log"
+	"log"
 	"fmt"
 	"time"
+	"io/ioutil"
 
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
-	_"github.com/mitsiu-carreno/go-tour/ziputil"
+	"github.com/mitsiu-carreno/go-tour/ziputil"
 )
 
 const (
@@ -25,18 +26,26 @@ func main() {
 	fmt.Printf("The time is %v \n", time.Now())
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
-	/* ZipFiles
-	files := []string{"ziputil/file1.csv","ziputil/file2.csv"}
+	// ZipFiles
+	files := []string{}
+	filesList, err := ioutil.ReadDir("/Users/jorandradefig/Desktop/Projects/DataCivica/1560000.org/parser/output/csv/")
+	if err != nil {
+		log.Fatal(err);
+	}
+
+	for _, f := range filesList{
+		files = append(files, "/Users/jorandradefig/Desktop/Projects/DataCivica/1560000.org/parser/output/csv/"+ f.Name())
+	}
 	output := "ziputil/go-zip.zip"
 
 	log.Println("Start zipping: ", output)
-	err := ziputil.ZipFiles(output, files)
+	err = ziputil.ZipFiles(output, files)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 	log.Println("Finish zipping: ", output)
-	*/
+	
 
 	// Basics
 	fmt.Printf("\n----BASICS----\n")

@@ -48,6 +48,7 @@ func ZipFiles(filename string, files[]string) error {
 		if err != nil{
 			return err
 		}
+		zipfile.Close()
 	}
 	return nil
 }
