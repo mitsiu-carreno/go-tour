@@ -2,6 +2,7 @@
 package moreTypes
 
 import (
+	"strings"
 	"fmt"
 )
 
@@ -116,7 +117,7 @@ func SliceStruct(){
 	// Slice has both length and capacity
 	// The length "len(s)" of a slice is the number of elements it contains
 	// The capacity "cap(s)" of a slice is the number of elements in the underlying array, counting from the first element in the slice
-	y := []int{1,2,3,4,5}
+	y := []int{1,2,3,4,5,6,7,8,9}
 	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
 	y = y[:0]
 	fmt.Printf("len=%d, cap = %d, %v\n", len(y), cap(y), y)
@@ -133,6 +134,30 @@ func SliceStruct(){
 	// A nil slice has zero length and capacity and no underlying array
 	var z []int
 	fmt.Printf("len=%d, cap = %d, %v\n", len(z), cap(z), z)
+
+	// Create slice with make
+	// The make function allocates a zeroed value and returns a slice that refers to that array
+	// a := make([]int, 5) // len(a) = 5
+	// To specify a capacity pass a third argument
+	rt := make([]int, 5, 10) 
+	fmt.Printf("make : len=%d, cap = %d, %v\n", len(rt), cap(rt), rt)
+
+	// Slices of slices
+	board := [][]string{
+		[]string{"-","-","-"},
+		[]string{"-","-","-"},
+		[]string{"-","-","-"},
+	}
+	// board[xAxis][yAxis]
+	board[0][0] = "X"
+	board[0][2] = "X"
+	board[1][2] = "O"
+
+	for i := 0; i < len(board); i++{
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+
+	// Appending to slide
 	
 }
 // LoopingArray when looping over an array, slice, string or map or reading from a channel use range
