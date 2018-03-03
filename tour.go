@@ -1,17 +1,17 @@
 package main
 
 import (
-	"log"
+	_"log"
 	"fmt"
 	"time"
-	"io/ioutil"
+	_"io/ioutil"
 
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
-	"github.com/mitsiu-carreno/go-tour/ziputil"
+	_"github.com/mitsiu-carreno/go-tour/ziputil"
 )
 
 const (
@@ -27,6 +27,7 @@ func main() {
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
 	// ZipFiles
+	/*
 	files := []string{}
 	filesList, err := ioutil.ReadDir("/Users/jorandradefig/Desktop/Projects/DataCivica/1560000.org/parser/output/csv/")
 	if err != nil {
@@ -45,7 +46,7 @@ func main() {
 		log.Fatal(err)
 	}
 	log.Println("Finish zipping: ", output)
-	
+	*/
 
 	// Basics
 	fmt.Printf("\n----BASICS----\n")
@@ -78,5 +79,8 @@ func main() {
 	moreTypes.ArrayStruct()
 	fmt.Println()	
 	moreTypes.SliceStruct()
-
+	fmt.Println()
+	moreTypes.LoopingArray()
+	fmt.Println()
+	moreTypes.MapsStruct()
 }

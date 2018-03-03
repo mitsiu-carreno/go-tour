@@ -158,9 +158,62 @@ func SliceStruct(){
 	}
 
 	// Appending to slide
-	
+	k := []int{1,2,3,4,5}
+
+	k = append(k, 6)
+	fmt.Println("Append 6 to slice", k)
+
+
 }
 // LoopingArray when looping over an array, slice, string or map or reading from a channel use range
 func LoopingArray(){
-	//for 
+	pow := []int{1,2,4,8,16,32,64,128,256,512,1024}
+
+	for i, v := range pow{
+		fmt.Printf("2**%v = %v\n", i,v)
+	}
+
+	// Or drop the key
+	for _, v := range pow{
+		fmt.Println("Drop key '_'", v)
+	}
+}
+
+
+// MapsStruct is a struct which maps keys to values (like JSON's)
+func MapsStruct(){
+	// The zero value of a map is "nil". A "nil" map has no keys, nor keys can be added 
+	var m map[string]Vertex
+	// The make function returns a map of a given type, initialized and ready to use
+	m = make(map[string]Vertex)
+	m["Key1"] = Vertex{
+		1,2,
+	}
+	fmt.Println(m)
+	fmt.Println(m["Key1"])
+
+	// If the top-level type is just a type name, you can omit it from the elements of the literal 
+	var t = map[string]Vertex{
+		"test" : {10,12},
+		"test2" : {12,13},
+	}
+	fmt.Println(t)
+
+	// Insert or update an element in map m[key] = elem
+	t["test"] = Vertex{10, 11}
+	t["test3"] = Vertex{14, 15}
+	t["to-delete"] = Vertex{0,0}
+
+	// Delete an element delete(m, key)
+	delete(t, "to-delete")
+
+	fmt.Println(t)
+	// Retrieve an element
+	if elem, ok := m["to-delete"]; ok{
+		fmt.Println(elem)
+	}else{
+		fmt.Println("m['to-delete'] dont exists")
+	}
+	
+
 }
