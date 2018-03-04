@@ -96,4 +96,6 @@ func main() {
 	methods.BasicMethod()
 	fmt.Println()
 	methods.NonStruct()
+	fmt.Println()
+	methods.PointerReceiver()
 }
