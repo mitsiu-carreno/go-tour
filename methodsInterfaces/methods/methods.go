@@ -69,5 +69,7 @@ func PointerReceiver(){
 	fmt.Println("pointer receiver, modified", pointerReceiver)
 	fmt.Println("value receiver, not modified", valReceiver)
 	fmt.Println("not a method but pointer receiver, modified", normalFunction)
+
+	// In general all methods on a given type should have either value or ponter receivers, but not a mixture of both 
 }
 
