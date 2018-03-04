@@ -87,4 +87,6 @@ func main() {
 	moreTypes.FunctionValues()
 	fmt.Println()
 	moreTypes.Closures()
+	fmt.Println()
+	moreTypes.Fi()
 }

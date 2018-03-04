@@ -237,7 +237,7 @@ func FunctionValues(){
 	fmt.Println(cast(3,4,sum))
 }
 
-// This function serves for the closure
+// This function serves as the closure
 func adder() func(int) int{
 	sum := 0
 	return func(x int) int{
@@ -250,5 +250,21 @@ func Closures(){
 	pos := adder()
 	for x:=0; x <= 10; x++{
 		fmt.Println(pos(x))
+	}
+}
+
+func fibonacciClosure() func() int{
+	x, y := 0, 1
+	return func() int{
+		x, y = y, x+y
+		return x
+	}
+}
+
+// Fi function calls a closure that creates the fibonacci series
+func Fi(){
+	f := fibonacciClosure()
+	for i:= 0; i< 10; i++{
+		fmt.Println(f())
 	}
 }
