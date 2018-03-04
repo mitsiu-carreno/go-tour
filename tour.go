@@ -83,4 +83,8 @@ func main() {
 	moreTypes.LoopingArray()
 	fmt.Println()
 	moreTypes.MapsStruct()
+	fmt.Println()
+	moreTypes.FunctionValues()
+	fmt.Println()
+	moreTypes.Closures()
 }

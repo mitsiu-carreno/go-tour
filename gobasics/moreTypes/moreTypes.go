@@ -4,6 +4,7 @@ package moreTypes
 import (
 	"strings"
 	"fmt"
+	"strconv"
 )
 
 // Vertex struct set a collection of fields or methods
@@ -214,6 +215,40 @@ func MapsStruct(){
 	}else{
 		fmt.Println("m['to-delete'] dont exists")
 	}
+}
+
+
+// cast recieve three arguments, x, y (ints) and a function which is used infunction
+func cast(x int, y int, funcVar func(int, int)int)string{
+	return strconv.Itoa(funcVar(x,y))
+}
+// FunctionValues functions are values too. They can be passed around just like other values
+func FunctionValues(){
+	// Function values can be used as function arguments and return values
 	
 
+	sum := func(x, y int) int{
+		return x + y
+	}
+
+	fmt.Println("call function as sum(1,2)")
+	fmt.Println(sum(1,2))
+	fmt.Println("send function as argument")
+	fmt.Println(cast(3,4,sum))
+}
+
+// This function serves for the closure
+func adder() func(int) int{
+	sum := 0
+	return func(x int) int{
+		sum += x
+		return sum
+	}
+}
+// Closures are functions values that references variables from outside its body. The function may access and assign to the referenced variables 
+func Closures(){
+	pos := adder()
+	for x:=0; x <= 10; x++{
+		fmt.Println(pos(x))
+	}
 }
