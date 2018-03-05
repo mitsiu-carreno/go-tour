@@ -9,7 +9,7 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
-	"github.com/mitsiu-carreno/go-tour/methodsInterfaces/methods"
+	"github.com/mitsiu-carreno/go-tour/methodsInterfaces"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
 	_"github.com/mitsiu-carreno/go-tour/ziputil"
