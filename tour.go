@@ -103,4 +103,6 @@ func main() {
 	interfaces.BasicInterface()
 	fmt.Println()
 	interfaces.ImplementImplicit()
+	fmt.Println()
+	interfaces.InterfaceValues()
 }

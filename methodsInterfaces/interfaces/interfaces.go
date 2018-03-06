@@ -2,6 +2,7 @@ package interfaces
 
 import (
 	"fmt"
+	"math"
 )
 
 // MyFloat non-struct type
@@ -64,4 +65,25 @@ func ImplementImplicit(){
 	// Which could appear in any package withour prearrangement 
 	var t I = T{"WORDS"}
 	t.M()
+}
+
+// F type for example
+type F float64
+// M method with F signature
+func (f F)M(){
+	fmt.Println(f)
+}
+func describe(i I){
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+// InterfaceValues select a method from the interface depending on the type
+func InterfaceValues(){
+	var i I
+	i = T{"Hello"}
+	describe(i)
+	i.M()
+
+	i = F(math.Pi)
+	describe(i)
+	i.M()
 }
