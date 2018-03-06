@@ -101,4 +101,6 @@ func main() {
 	methods.PointerReceiver()
 	fmt.Println()
 	interfaces.BasicInterface()
+	fmt.Println()
+	interfaces.ImplementImplicit()
 }

@@ -44,3 +44,24 @@ func BasicInterface(){
 	fmt.Println(a.Sign())
 	fmt.Println(b.Sign())
 }
+
+// T struct type
+type T struct{
+	S string
+}
+// I interface set M metod
+type I interface{
+	M()
+}
+// M This method means type T implements the interface I,
+// but we don't need to explicitly declare that it does so. 
+func (t T)M(){
+	fmt.Println(t.S)
+}
+// ImplementImplicit a type implements an interface by implementing its methods. Theres no explicit declaration (no "implement" key)
+func ImplementImplicit(){
+	// Implicit interfaces decouple the definition of an interface from its implementation,
+	// Which could appear in any package withour prearrangement 
+	var t I = T{"WORDS"}
+	t.M()
+}
