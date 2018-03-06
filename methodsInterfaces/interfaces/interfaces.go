@@ -87,3 +87,68 @@ func InterfaceValues(){
 	describe(i)
 	i.M()
 }
+
+// Interf custom interface
+type Interf interface{
+	handleNil()
+}
+// MyType custom struct
+type MyType struct{
+	S string
+}
+func (t *MyType)handleNil(){
+	if t == nil{
+		fmt.Println("<nil>")
+		return
+	}
+	fmt.Println(t.S)
+}
+// InterfaceNil if the concrete value inside an interface is nil, the method will be called with a nil receiver
+func InterfaceNil(){
+	// A nil interface value holds neither a value nor a concrete type 
+	var i Interf
+	// i.handleNil() // Calling a method on a nil interface is a run-time error because there is no type inside the interface tuple to indicate which concrete method to call
+	var t *MyType 
+
+	i = t
+	fmt.Printf("(%v, %T)\n", i, i)
+	// In some laguages this would trigger a null pointer exception, but in go it is common to write methods that gracefully handle being called with a nil receiver
+	i.handleNil()
+
+	i = &MyType{"Not nil anymore"}
+	fmt.Printf("(%v, %T)\n", i, i)
+	i.handleNil()
+}
+
+// EmptyInterface may hold values of any type (Every type implements at least zero methods)
+func EmptyInterface(){
+	// Empty interfaces are used by code that handles values of unknown type
+	// For example "fmt.Print" takes any number of arguments of type "interface{}"
+	var i interface{}
+	
+	fmt.Printf("(%v, %T)\n", i, i)
+	
+	i = 42
+	fmt.Printf("(%v, %T)\n", i, i)
+
+	i = "Hello"
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
+// TypeAssertions provides access to an interface value's underlying concrete value "t := i.(T)"
+func TypeAssertions(){
+	// "t := i.(T)" asserts that the interface value "i" holds the concrete type "T" and assigns the underlying "T" value to the variable "t"
+	
+	var i interface{} = "Hello"
+
+	// If "i" does not hold a "T", the statement will trigger a panic
+	//f = i.(float64)
+
+	// To test whether an interface value holds a specific type, a type assertion can return two values: the underlying value and a boolean value that reports wheter the assertion succeded (if not, prevents a panic) 
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+
+}

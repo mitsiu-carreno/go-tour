@@ -105,4 +105,10 @@ func main() {
 	interfaces.ImplementImplicit()
 	fmt.Println()
 	interfaces.InterfaceValues()
+	fmt.Println()
+	interfaces.InterfaceNil()
+	fmt.Println()
+	interfaces.EmptyInterface()
+	fmt.Println()
+	interfaces.TypeAssertions()
 }
