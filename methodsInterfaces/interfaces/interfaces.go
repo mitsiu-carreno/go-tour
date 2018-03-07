@@ -152,3 +152,45 @@ func TypeAssertions(){
 	fmt.Println(f, ok)
 
 }
+
+func getType(i interface{}){
+	// The declaration in a type switch has the same syntax as a type assertion "i.(T)" but the specific 
+	// type "T" is replaced with the keyword "type"
+	switch v := i.(type){
+	case int:
+		fmt.Printf("Twice %v is %v\n", v, v*2)
+	case string:
+		fmt.Printf("%q is %v bytes long \n", v, len(v))
+	// In the default case the variable v is of the same interface type and value as i
+	default:
+		fmt.Printf("%v for sure is neither an int nor a string\n", v)
+	}
+}
+// TypeSwitch is a construct that permits several type assertions series
+func TypeSwitch(){
+	// A type switch is like a regular switch statement, but the cases in a type switch specify 
+	// types (not values), and those values are compared against the type of the value held by the given 
+	// interface value
+
+	getType(20)
+	getType("hello")
+	getType(true)
+}
+
+// Person type for stringer example
+type Person struct{
+	Name string
+	Age int
+}
+// String is the stringer an overrides the Println method below
+func (p Person)String()string{
+	return fmt.Sprintf("%v (%v years),", p.Name, p.Age)
+}
+// Stringers is one of the most ubiquitous interfaces is Stringer defined by the "fmt" package.
+func Stringers(){
+	a := Person{"Mitsiu", 24}
+	b := Person{"Kary", 24}
+	fmt.Println(a, b)
+}
+
+// Errors 

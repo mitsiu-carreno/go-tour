@@ -111,4 +111,8 @@ func main() {
 	interfaces.EmptyInterface()
 	fmt.Println()
 	interfaces.TypeAssertions()
+	fmt.Println()
+	interfaces.TypeSwitch()
+	fmt.Println()
+	interfaces.Stringers()
 }
