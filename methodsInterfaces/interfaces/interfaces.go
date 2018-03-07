@@ -3,6 +3,7 @@ package interfaces
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 // MyFloat non-struct type
@@ -193,4 +194,24 @@ func Stringers(){
 	fmt.Println(a, b)
 }
 
-// Errors 
+
+type MyError struct{
+	When time.Time
+	What string
+}
+func (e *MyError)Error()string{
+	return fmt.Sprintf("%s, at %v", e.What, e.When)
+}
+func run() error{
+	return &MyError{
+		time.Now(),
+		"Triggered error",
+	}
+}
+// Errors go programs express error state with "error value" 
+func Errors(){
+	// The error type is a built-in interface similar to fmt.Stringer
+	if err := run(); err != nil{
+		fmt.Println(err)
+	}
+}
