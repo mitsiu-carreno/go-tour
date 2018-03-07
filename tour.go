@@ -9,8 +9,9 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/basics"
 	"github.com/mitsiu-carreno/go-tour/gobasics/flowControl"
 	"github.com/mitsiu-carreno/go-tour/gobasics/moreTypes"
-	"github.com/mitsiu-carreno/go-tour/methodsInterfaces/methods"
-	"github.com/mitsiu-carreno/go-tour/methodsInterfaces/interfaces"
+	"github.com/mitsiu-carreno/go-tour/gobasics/methodsInterfaces/methods"
+	"github.com/mitsiu-carreno/go-tour/gobasics/methodsInterfaces/interfaces"
+	"github.com/mitsiu-carreno/go-tour/gobasics/goroutines"
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
 	_"github.com/mitsiu-carreno/go-tour/ziputil"
@@ -92,8 +93,8 @@ func main() {
 	fmt.Println()
 	moreTypes.Fi()
 
-	// Method
-	fmt.Printf("\n----Methods----\n")
+	// Methods and interfaces
+	fmt.Printf("\n----Methods & Interfaces----\n")
 	methods.BasicMethod()
 	fmt.Println()
 	methods.NonStruct()
@@ -119,4 +120,8 @@ func main() {
 	interfaces.Errors()
 	fmt.Println()
 	interfaces.Readers()
+
+	// Goroutines
+	fmt.Printf("\n----Goroutines----\n")
+	goroutines.BasicGoroutine()
 }
