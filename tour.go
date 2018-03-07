@@ -115,4 +115,8 @@ func main() {
 	interfaces.TypeSwitch()
 	fmt.Println()
 	interfaces.Stringers()
+	fmt.Println()
+	interfaces.Errors()
+	fmt.Println()
+	interfaces.Readers()
 }

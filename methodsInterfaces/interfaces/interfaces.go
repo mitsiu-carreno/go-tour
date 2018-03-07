@@ -1,9 +1,11 @@
 package interfaces
 
 import (
+	"strings"
 	"fmt"
 	"math"
 	"time"
+	"io"
 )
 
 // MyFloat non-struct type
@@ -194,11 +196,12 @@ func Stringers(){
 	fmt.Println(a, b)
 }
 
-
+// MyError custom struct for errors
 type MyError struct{
 	When time.Time
 	What string
 }
+// Error custom stringer
 func (e *MyError)Error()string{
 	return fmt.Sprintf("%s, at %v", e.What, e.When)
 }
@@ -213,5 +216,24 @@ func Errors(){
 	// The error type is a built-in interface similar to fmt.Stringer
 	if err := run(); err != nil{
 		fmt.Println(err)
+	}
+}
+
+// Readers the io.Reader package represents the read end of a stream of data
+// the go standard library contains many implementations of these interfaces, including files, network connections, compressors, ciphers... (https://golang.org/search?q=Read#Global)
+func Readers(){
+	r := strings.NewReader("this is awesome")
+	// Creates a strings.reader and consumes its output 8 bytes at the time
+	b := make ([]byte, 8)
+
+	for{
+		// The io.Reader interface has a Read method " func(T) Read(b []bytes)(n int, err error)"
+		// Read populates the given byte slice with data and returns the number of bytes populated and an error value. It returns an io.EOF error when the stream ends
+		n, err := r.Read(b)
+		fmt.Printf("n = %v; err = %v; b = %v\n", n, err, b)
+		fmt.Printf("b[:n] = %q\n", b[:n])
+		if err == io.EOF{
+			break
+		}
 	}
 }
