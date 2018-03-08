@@ -124,4 +124,6 @@ func main() {
 	// Goroutines
 	fmt.Printf("\n----Goroutines----\n")
 	goroutines.BasicGoroutine()
+	fmt.Println()
+	goroutines.BasicChannels()
 }
