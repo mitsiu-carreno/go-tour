@@ -13,6 +13,8 @@ import (
 	"github.com/mitsiu-carreno/go-tour/gobasics/methodsInterfaces/interfaces"
 	"github.com/mitsiu-carreno/go-tour/gobasics/goroutines"
 
+	"github.com/mitsiu-carreno/go-tour/concurrencyPatterns"
+
 	"github.com/mitsiu-carreno/go-tour/stringutil"
 	_"github.com/mitsiu-carreno/go-tour/ziputil"
 )
@@ -25,7 +27,7 @@ const (
 	Small = Big >> 99
 )
 
-func main() {
+func goBasics() {
 	fmt.Printf("The time is %v \n", time.Now())
 	fmt.Println(stringutil.Reverse("evol ym yraK"))
 
@@ -126,4 +128,13 @@ func main() {
 	goroutines.BasicGoroutine()
 	fmt.Println()
 	goroutines.BasicChannels()
+}
+
+func goConcurrency(){
+	concurrencyPatterns.Index()
+}
+
+func main(){
+	//goBasics()
+	goConcurrency()
 }
