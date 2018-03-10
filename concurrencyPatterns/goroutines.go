@@ -1,22 +1,23 @@
-// concurrencyPatterns 
+// Package concurrencyPatterns is a series of examples extracted from (https://www.youtube.com/watch?v=f6kdp27TYZs)
 package concurrencyPatterns
 
 import (
 	"fmt"
 	"time"
-	_"math/rand"
+	"math/rand"
 )
 
 func boring (msg string){
 	for i:=0; i<10; i++{
 		fmt.Println(msg, i)
-		time.Sleep(2 * time.Millisecond)
+		time.Sleep((time.Duration(rand.Intn(1e3))) * time.Millisecond)
 	}
 }
 
-func Index(){
+// Concurrency is the composition of independently executing computations
+func Concurrency(){
 	go boring("boring!")
 	fmt.Println("I'm listening")
-	time.Sleep(10 * time.Millisecond)
+	time.Sleep(2 * time.Second)
 	fmt.Println("You're boring; I'm leaving")
 }
