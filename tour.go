@@ -134,6 +134,7 @@ func goConcurrency(){
 	//concurrencyPatterns.Concurrency()
 	//concurrencyPatterns.Channel()
 	concurrencyPatterns.FunctionReturnChannel()
+	concurrencyPatterns.Multiplexing()
 }
 
 func main(){
