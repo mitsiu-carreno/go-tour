@@ -17,11 +17,21 @@ func boringFunc(msg string) <-chan string{	// Returns receive-only channel of st
 	return c // Return the channel to the caller
 
 }
-// FunctionReturnChannel channels are first-class values, just like strings or integers
+// FunctionReturnChannel channels as a handle on a service 
 func FunctionReturnChannel(){
+	// Our boring function returns a channel that let us communicate with the boring service it provides 
 	c := boringFunc("Boring func")
 	for i:= 0; i<5; i++{
 		fmt.Printf("You say: %q\n", <-c)
 	}
 	fmt.Println("You are a boring func, I'm leaving")
+
+	joe := boringFunc("Joe")
+	ann := boringFunc("Ann")
+	for i := 0; i<5; i++{
+		// They sycronize, if joe is ready to send but ann isn't, joe is blocked until ann send
+		fmt.Println(<-ann)
+		fmt.Println(<-joe)
+	}
+	fmt.Println("You are both boring services, I'm leavnig")
 }
