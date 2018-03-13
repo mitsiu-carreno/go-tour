@@ -131,8 +131,9 @@ func goBasics() {
 }
 
 func goConcurrency(){
-	concurrencyPatterns.Concurrency()
-	concurrencyPatterns.Channel()
+	//concurrencyPatterns.Concurrency()
+	//concurrencyPatterns.Channel()
+	concurrencyPatterns.FunctionReturnChannel()
 }
 
 func main(){
