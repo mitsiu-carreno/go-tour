@@ -1,14 +1,33 @@
 package mergeFiles
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"log"
 	"io"
 	"encoding/csv"
-	_"bytes"
-	_"fmt"
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
+	"time"
 )
+
+const (
+	inputPath = "mergeFiles/assets/"
+	outPath = "mergeFiles/output/"
+
+	hosts      = "localhost"
+    database   = "1560000"
+    username   = ""
+    password   = ""
+    collection = "pdfs"
+)
+
+type Pdfs struct{
+	_id			string `bson:"_id,omitempty"`
+	ANIO		string `bson:"ANIO"`
+	ARCHIVO		string `bson:"ARCHIVO"`
+}
 
 func check(e error){
 	if e != nil{
@@ -40,6 +59,31 @@ func processCSV(record io.Reader) (ch chan []string){
 func MergeUtil(){
 //func MergeUtil(_filename string, _files[]string){
 
+	info := &mgo.DialInfo{
+		Addrs:    []string{hosts},
+        Timeout:  60 * time.Second,
+        Database: database,
+        Username: username,
+        Password: password,
+	}
+
+	session, err := mgo.DialWithInfo(info)
+	check(err)
+	defer session.Close()
+	 
+	col := session.DB(database).C(collection)
+
+	/*
+	count, err := col.Count()
+	check(err)
+	fmt.Println(count)
+	*/
+	var mgoResult []Pdfs
+	err = col.Find(bson.M{"ANIO":2017}).All(&mgoResult)
+	check(err)
+	fmt.Println(mgoResult)
+
+
 	outfile, err := os.Create(outPath + "merge.csv")
 	check(err)
 	defer outfile.Close()
@@ -69,6 +113,3 @@ func MergeUtil(){
 		}
 	}
 }
-
-const inputPath = "mergeFiles/assets/"
-const outPath = "mergeFiles/output/"
