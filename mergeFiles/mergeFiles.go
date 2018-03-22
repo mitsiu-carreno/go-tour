@@ -15,12 +15,6 @@ import (
 const (
 	inputPath = "mergeFiles/assets/"
 	outPath = "mergeFiles/output/"
-
-	hosts      = "localhost"
-    database   = "1560000"
-    username   = ""
-    password   = ""
-    collection = "pdfs"
 )
 
 type Pdfs struct{
@@ -59,6 +53,12 @@ func processCSV(record io.Reader) (ch chan []string){
 func MergeUtil(){
 //func MergeUtil(_filename string, _files[]string){
 
+	var hosts      = os.Getenv("MAIN_DB_HOST")
+    var database   = os.Getenv("MAIN_DB_DB")
+    var username   = os.Getenv("MAIN_DB_USER")
+    var password   = os.Getenv("MAIN_DB_PASSWORD")
+	var collection = os.Getenv("MAIN_DB_COLLECTION")
+	
 	info := &mgo.DialInfo{
 		Addrs:    []string{hosts},
         Timeout:  60 * time.Second,
