@@ -17,6 +17,7 @@ import (
 
 	"github.com/mitsiu-carreno/go-tour/stringutil"
 	_"github.com/mitsiu-carreno/go-tour/ziputil"
+	"github.com/mitsiu-carreno/go-tour/mergeFiles"
 )
 
 const (
@@ -139,5 +140,6 @@ func goConcurrency(){
 
 func main(){
 	//goBasics()
-	goConcurrency()
+	//goConcurrency()
+	mergeFiles.MergeUtil()
 }
