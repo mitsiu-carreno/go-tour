@@ -15,5 +15,6 @@
 
 .vscode
 
+.env*
 .DS_Store
 output/
