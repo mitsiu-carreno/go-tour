@@ -1,4 +1,4 @@
-package main2
+package main
 
 import (
 	_"log"
@@ -138,7 +138,7 @@ func goConcurrency(){
 	concurrencyPatterns.Multiplexing()
 }
 
-func main2(){
+func main(){
 	//goBasics()
 	//goConcurrency()
 	mergeFiles.MergeUtil()

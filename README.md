@@ -9,6 +9,7 @@ $ go get <github.com/user/project>      //download and install packages and depe
 
 ```
 $ go build      // test that the package compiles (compile packages and dependencies)
+$ GOOS=linux GOARCH=amd64 go build file.go
 ```
 
 ```
